@@ -1,5 +1,9 @@
 # Traveling Salesperson Problem -- Held-Karp Algorithm
 
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
+
+I wrote everything myself except for the lambda function inside my call to rec_hk. I needed to send a copy of the matrix through instead of sending it through by reference. I looked up online how to make a deep copy of a matrix in js and that is the expression it gave me.
+
 This exercise is about the Traveling Salesperson Problem I mentioned in the
 lecture on NP-hard problems -- given a set of cities, determine the length of
 the shortest tour that visits all of them. We can get from any city to any other
@@ -46,3 +50,12 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+
+The worst case asymptotic time complexity of my implimentation is $\Theta(n^2)$  
+with n being the number of cities. This is because I run a for loop that checks
+using each city as the start node. Then I call rec_hk which has a for loop that
+checks all the cities for a shortest path. This in the end gives us $\Theta(n^2)$.
+
+The worst case asymptotic memory complexity is also $n^2$ this is because I have to
+send a copy of the matrix through to the recursive function.
