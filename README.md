@@ -2,7 +2,7 @@
 
 I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
 
-I wrote everything myself except for the lambda function inside my call to rec_hk. I needed to send a copy of the matrix through instead of sending it through by reference. I looked up online how to make a deep copy of a matrix in js and that is the expression it gave me.
+I wrote everything then talked to Aiden and realized my implimentation wasnt true held karp. He told me how to use memoization and so I implimented it into my code. Then I talked to the TA to try and understand the time complexity of it because I didn't understand where the $2^n$ came in. He helped but not fully, so I went onto the internet to find a better answer and found out why there are $2^n$ subsets from the google AI when you type in the search bar.
 
 This exercise is about the Traveling Salesperson Problem I mentioned in the
 lecture on NP-hard problems -- given a set of cities, determine the length of
@@ -52,10 +52,12 @@ is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
 
 
-The worst case asymptotic time complexity of my implimentation is $\Theta(n^2)$  
-with n being the number of cities. This is because I run a for loop that checks
-using each city as the start node. Then I call rec_hk which has a for loop that
-checks all the cities for a shortest path. This in the end gives us $\Theta(n^2)$.
+The worst case asymptotic time complexity of my implimentation is $\Theta(n^2*2^n)$  
+with n being the number of cities. The first for loop provides an n complexity because
+we are checking all of the nodes as start nodes. Then the second loop in the recursive function
+does the same thing. The $2^n$  comes from the subset of cities. There are two
+options for each city, include it or don't.
 
-The worst case asymptotic memory complexity is also $n^2$ this is because I have to
-send a copy of the matrix through to the recursive function.
+The worst case asymptotic memory complexity is $n*2^n$. This is because at any given time we will have 
+the number of subsets stored which is $2^n$. Then we will also store the resulting length for the prior
+cities as well which provides us with our extra n.
