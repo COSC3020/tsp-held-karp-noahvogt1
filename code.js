@@ -10,9 +10,12 @@ function tsp_hk(distance_matrix) {
     return minDist;
 }
 
-function rec_hk(matrix, current, visited, memo = {}, start) {
-    let key = current + visited;
-    if (memo[key] != undefined) return memo[key];
+function rec_hk(matrix, current, visited, memoization = {}, start) {
+    let key = current + "|" + visited;
+
+    if (memoization[key] != undefined) {
+        return memoization[key];
+    }
 
     if (visited.size == matrix.length) {
         return 0;
@@ -23,12 +26,12 @@ function rec_hk(matrix, current, visited, memo = {}, start) {
     for (let i = 0; i < matrix.length; i++) {
         if (!visited.has(i) && matrix[current][i] != 0) {
             visited.add(i);
-            let dist = matrix[current][i] + rec_hk(matrix, i, visited, memo, start);
+            let dist = matrix[current][i] + rec_hk(matrix, i, visited, memoization, start);
             if (dist < minDist) minDist = dist;
             visited.delete(i);
         }
     }
 
-    memo[key] = minDist;
+    memoization[key] = minDist;
     return minDist;
 }
