@@ -11,7 +11,7 @@ function tsp_hk(distance_matrix) {
 }
 
 function rec_hk(matrix, current, visited, memoization = {}, start) {
-    let key = current + "|" + visited;
+    let key = current + "|" + [...visited].sort();
 
     if (memoization[key] != undefined) {
         return memoization[key];
