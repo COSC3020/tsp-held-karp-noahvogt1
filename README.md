@@ -54,9 +54,9 @@ reasoning, to this markdown file.
 
 The worst case asymptotic time complexity of my implimentation is $\Theta(n^2*2^n)$  
 with n being the number of cities. The first for loop provides an n complexity because
-we are checking all of the nodes as start nodes. Then the second loop in the recursive function
-does the same thing. The $2^n$  comes from the subset of cities. There are two
-options for each city, include it or don't.
+we are checking all of the nodes as start nodes, this is in the tsp_hk() function.
+Then the second loop is in the rec_hk() function also loops over all of the nodes.
+The $2^n$  comes from the subset of cities. There are two options for each city, include it or don't.
 
 The worst case asymptotic memory complexity is $n*2^n$. This is because at any given time we will have 
 the number of subsets stored which is $2^n$. Then we will also store the resulting length for the prior
