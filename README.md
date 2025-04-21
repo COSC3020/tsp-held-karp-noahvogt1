@@ -1,5 +1,9 @@
 # Traveling Salesperson Problem -- Held-Karp Algorithm
 
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
+
+I wrote everything then talked to Aiden and realized my implimentation wasnt true held karp. He told me how to use memoization and so I implimented it into my code. Then I talked to the TA to try and understand the time complexity of it because I didn't understand where the $2^n$ came in. He helped but not fully, so I went onto the internet to find a better answer and found out why there are $2^n$ subsets from the google AI when you type in the search bar.
+
 This exercise is about the Traveling Salesperson Problem I mentioned in the
 lecture on NP-hard problems -- given a set of cities, determine the length of
 the shortest tour that visits all of them. We can get from any city to any other
@@ -46,3 +50,14 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+
+The worst case asymptotic time complexity of my implimentation is $\Theta(n^2*2^n)$  
+with n being the number of cities. The first for loop provides an n complexity because
+we are checking all of the nodes as start nodes, this is in the tsp_hk() function.
+Then the second loop is in the rec_hk() function also loops over all of the nodes.
+The $2^n$  comes from the subset of cities. There are two options for each city, include it or don't.
+
+The worst case asymptotic memory complexity is $n*2^n$. This is because at any given time we will have 
+the number of subsets stored which is $2^n$. Then we will also store the resulting length for the prior
+cities as well which provides us with our extra n.
